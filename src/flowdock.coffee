@@ -79,6 +79,15 @@ class Session extends process.EventEmitter
       tags: tags || []
     @send "/messages", data, callback
 
+  # Send a comment to a message to Flowdock
+  comment: (orgFlowName, messageId, comment, tags, callback) ->
+    data =
+      event: 'comment'
+      content: comment
+      tags: tags || []
+    orgFlowName = orgFlowName.replace(':', '/')
+    @send "/flows/#{orgFlowName}/messages/#{messageId}/comments", data, callback
+
   # Send a private message to Flowdock
   privateMessage: (userId, message, tags, callback) ->
     data =

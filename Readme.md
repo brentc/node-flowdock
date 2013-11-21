@@ -53,6 +53,12 @@ session.message('example:main', 'Isn\'t this cool?');
 ```
 Both arguments should be strings. Sending a message is flow specific.
 
+#### Post a comment to a flow message
+```javascript
+session.comment('example:main', 3816534, 'Yes, it is this cool!');
+```
+First and third arguments should be strings. The second is the parent message's ID.
+
 #### Post a chat message to a private chat
 ```javascript
 session.privateMessage(12345, 'Hi, this is a secret message!');
